@@ -37,12 +37,29 @@ const Login = () => {
             return
 
         }
+
+        if (password.trim().length < 8) {
+            iziToast.warning({
+                title: 'Warning',
+                message: 'Ensure that the password characters is 8 or more.',
+                position: 'topRight',
+                backgroundColor: 'red',
+                messageColor: 'white',
+                titleColor: 'white',
+                timeout: 3000,
+                iconColor: 'white'
+            })
+
+            return
+        }
+
+
         iziToast.success({
             title: 'Succesful!',
             message: 'You have successfully joined ProXecute.',
             position: 'topRight',
         })
-        navigate('/')
+        navigate('/dashboard/')
     }
 
     return (
@@ -59,14 +76,14 @@ const Login = () => {
                         <form action="" className="flex flex-col gap-[20px] w-full">
 
                             {/* Email */}
-                            <input 
-                            type="text"
-                            onChange={(e)=>{
-                                setEmail(e.target.value)
-                            }} 
-                            value={email}
-                            id='email' 
-                            className='w-full text-[14px] max-md:text-[12px] font-light py-[7px] border-b-[0.1px] border-b-gray-500 outline-none' placeholder='Email' />
+                            <input
+                                type="text"
+                                onChange={(e) => {
+                                    setEmail(e.target.value)
+                                }}
+                                value={email}
+                                id='email'
+                                className='w-full text-[14px] max-md:text-[12px] font-light py-[7px] border-b-[0.1px] border-b-gray-500 outline-none' placeholder='Email' />
 
                             {/* Password */}
                             <div className="flex flex-col gap-[3px]">
@@ -103,7 +120,7 @@ const Login = () => {
                             {/* button */}
                             <button
                                 type="submit"
-                                onClick={(e)=>{
+                                onClick={(e) => {
                                     formSubmit(e)
                                 }}
                                 className='w-full bg-black text-white font-normal max-md:text-[14px] py-[10px] max-md:py-[7px] rounded-[10px] hover:cursor-pointer hover:bg-gray-600'

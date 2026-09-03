@@ -44,19 +44,35 @@ const Register = () => {
             return
 
         }
+
+        if (password.trim().length < 8) {
+            iziToast.warning({
+                title: 'Warning',
+                message: 'Ensure that the password characters is 8 or more.',
+                position: 'topRight',
+                backgroundColor: 'red',
+                messageColor: 'white',
+                titleColor: 'white',
+                timeout: 3000,
+                iconColor: 'white'
+            })
+
+            return
+        }
+
         iziToast.success({
             title: 'Succesful!',
             message: 'You have successfully logged in.',
             position: 'topRight',
         })
-        navigate('/login')
+        navigate('/')
     }
 
     return (
         <div>
             <div className="min-h-screen flex justify-center items-center">
                 <div className="flex max-md:flex-col items-stretch max-md:items-center max-w-[1000px] w-[90%] h-auto gap-[20px] max-md:gap-[7px] shadow-lg p-[50px] max-md:px-[35px] max-md:py-[40px] border-[0.1px] border-gray-300 rounded-[25px] max-md:rounded-[10px]">
-                    <Auth className={`w-[50%] flex-shrink-0 `} />
+                    <Auth className={`w-[50%] flex-shrink-0`} />
                     <div className="flex-1 flex flex-col gap-[20px] max-md:gap-[22px] h-auto p-[20px] max-md:p-[0px] max-md:w-full">
                         <div className="flex flex-col gap-[2px] max-md:gap-[0px] max-md:text-center">
                             <h1 className='text-[22px] font-bold max-md:text-[20px]'>Welcome to ProXecute!</h1>
@@ -137,7 +153,7 @@ const Register = () => {
                                 className='w-full bg-black text-white font-normal max-md:text-[14px] py-[10px] max-md:py-[7px] rounded-[10px] hover:cursor-pointer hover:bg-gray-600'
                             >Register
                             </button>
-                            <p className="text-sm text-center max-md:text-[12px]">Have an account? <Link to='/login' className="text-sm  hover:text-red-500 max-md:text-[12px] border-b-[0.1px] border-b-black">Login here</Link></p>
+                            <p className="text-sm text-center max-md:text-[12px]">Have an account? <Link to='/' className="text-sm  hover:text-red-500 max-md:text-[12px] border-b-[0.1px] border-b-black">Login here</Link></p>
 
                         </form>
 

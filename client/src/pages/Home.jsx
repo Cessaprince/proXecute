@@ -3,41 +3,47 @@ import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 import logo from '../assets/images/proXecute.png'
 import { ChevronUp, MoveUpRight, Plus } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BarChart } from '@mui/x-charts/BarChart';
 import ProjectAnalytics from '../components/ProjectAnalytics'
 import person1 from '../assets/images/person1.jpeg'
 import person2 from '../assets/images/person2.jpeg'
 import person3 from '../assets/images/person3.jpg'
 import person4 from '../assets/images/person4.avif'
+import { } from 'react-router-dom'
 
 
 const Home = () => {
+    const navigate = useNavigate();
     return (
-        <div className='flex flex-col h-full gap-[22px]'>
+        <div className='flex flex-col h-full gap-[22px] max-md:gap-[25px] max-lg:w-full'>
 
-            <div className="flex justify-between items-center w-full">
+            <div className="flex max-md:flex-col max-md:items-start max-md:gap-[20px] justify-between items-center w-full">
                 <div className="flex flex-col">
                     <h1 className="font-semibold capitalize text-[30px]">dashboard</h1>
-                    <p className="text-[15px] font-light text-gray-500">Plan, prioritize, and accomplish your tasks with ease.</p>
+                    <p className="text-[15px] max-md:text-[15px] font-light text-gray-500">Plan, prioritize, and accomplish your tasks with ease.</p>
 
                 </div>
 
                 {/* buttons */}
-                <div className="flex items-center gap-[10px]">
-                    <button className="flex gap-[5px] text-white items-center bg-orange-600 w-fit py-[12px] px-[20px] cursor-pointer rounded-[25px] hover:bg-orange-500  transition-all ease-in-out duration-300 hover:-translate-y-1">
+                <div className="flex max-md:justify-between max-md:w-full items-center gap-[10px]">
+                    <button 
+                    onClick={()=>{
+                        navigate('projects')
+                    }}
+                    className="flex gap-[5px] text-white items-center bg-orange-600 w-fit py-[12px] px-[20px] cursor-pointer rounded-[25px] hover:bg-orange-500  transition-all ease-in-out duration-300 hover:-translate-y-1">
                         <Plus size={18} />
                         <span className="capitalize text-[13px]">add project</span>
                     </button>
 
-                    <button className="font-bold  text-orange-600 items-center border-[1px] border-orange-600 w-fit py-[9px] px-[20px] cursor-pointer rounded-[25px] transition-all ease-in-out duration-300 hover:-translate-y-1">
+                    <button className="font-bold text-orange-600 items-center border-[1px] border-orange-600 w-fit py-[9px] px-[20px] cursor-pointer rounded-[25px] transition-all ease-in-out duration-300 hover:-translate-y-1">
                         <span className="capitalize text-[13px]">import data</span>
                     </button>
 
                 </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-[20px]">
+            <div className="grid grid-cols-4 gap-[20px] max-md:grid-cols-1 max-lg:grid-cols-2">
                 {/* total projects */}
                 <Link to='projects' className="flex flex-col shadow-lg gap-[10px] group hover:scale-97 cursor-pointer transition-all ease-in-out duration-400 p-[20px] bg-linear-to-b from-orange-600 to-orange-400 rounded-[18px] border-[0.1px] h-auto border-gray-100">
                     <div className="flex justify-between items-center w-full">
@@ -114,16 +120,16 @@ const Home = () => {
                 </Link>
             </div>
 
-            <div className="flex gap-[15px] items-stretch">
+            <div className="flex gap-[15px] items-stretch max-lg:flex-col">
 
                 {/* the chart */}
-                <div className="w-[50%] h-[300px] flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-300 p-[20px]">
+                <div className="w-[50%] max-lg:w-full h-[300px] flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-300 p-[20px]">
                     <h3 className="text-[16px] capitalize font-semibold">project analytics (weekly)</h3>
                     <ProjectAnalytics />
                 </div>
 
                 {/* reminders */}
-                <div className="w-[25%] h-auto flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-200 p-[20px]">
+                <div className="w-[25%] max-lg:w-full h-auto flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-200 p-[20px]">
                     <h3 className="text-[14px] capitalize font-semibold">reminders</h3>
                     <h1 className="text-[26px] font-semi-bold capitalize">meeting with mr. thomson</h1>
                     <span className="text-gray-500 text-xs font-light uppercase">2:00pm to 3:00pm</span>
@@ -131,7 +137,7 @@ const Home = () => {
                 </div>
 
                 {/* top collaborators */}
-                <div className="w-[25%] h-auto flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-200 p-[20px]">
+                <div className="w-[25%] max-lg:w-full h-auto flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-200 p-[20px]">
                     <h3 className="text-[14px] capitalize font-semibold">top collaborators</h3>
                     {/* collaborators div */}
                     <div className="flex flex-col gap-[15px]">

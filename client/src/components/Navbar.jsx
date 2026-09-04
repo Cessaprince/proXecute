@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../assets/images/proXecute.png'
-import { BellDotIcon, LucideBell, LucideBellDot, SearchIcon } from 'lucide-react'
+import { BellDotIcon, HamburgerIcon, LucideBell, LucideBellDot, MenuIcon, SearchIcon } from 'lucide-react'
 import profilePic from '../assets/images/default-profile-pic.jpeg'
 
 const Navbar = () => {
@@ -18,9 +18,12 @@ const Navbar = () => {
 
             <div className="flex gap-[20px] items-center">
                 {/* search bar*/}
-                <div className="flex items-center gap-[15px] w-[300px] border-[0.1px] border-gray-400 shadow-xs w-[5px] py-[7px] px-[12px] rounded-[25px]">
+                <div className="flex max-lg:hidden items-center gap-[15px] w-[300px] border-[0.1px] border-gray-400 shadow-xs w-[5px] py-[7px] px-[12px] rounded-[25px]">
                     <SearchIcon size={18} color='gray' />
                     <input placeholder='Search for anything...' type="search" name="search" id="search" className='w-full outline-none text-xs text-gray-500 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none' />
+                </div>
+                <div className="flex">
+                    <MenuIcon size={18} className='lg:hidden'/>
                 </div>
 
                 {/* notification bell that changes on notification*/}
@@ -28,7 +31,7 @@ const Navbar = () => {
 
                 {/* profile area */}
                 <div className="flex gap-[10px] items-center">
-                    <div className="flex flex-col items-right">
+                    <div className="flex flex-col items-right max-lg:hidden">
                         <h3 className='text-gray-600 font-bold text-[14px]'>Aisha Rakeem</h3>
                         <p className='text-gray-500 text-[12px]'>Lagos, Nigeria.</p>
                     </div>

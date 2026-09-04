@@ -18,13 +18,13 @@ const Navbar = () => {
 
             <div className="flex gap-[20px] items-center">
                 {/* search bar*/}
-                <div className="flex items-center gap-[15px] w-[300px] border-[0.1px] border-gray-400 shadow-xs w-[5px] py-[7px] px-[12px] rounded-[5px]">
+                <div className="flex items-center gap-[15px] w-[300px] border-[0.1px] border-gray-400 shadow-xs w-[5px] py-[7px] px-[12px] rounded-[25px]">
                     <SearchIcon size={18} color='gray' />
                     <input placeholder='Search for anything...' type="search" name="search" id="search" className='w-full outline-none text-xs text-gray-500 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none' />
                 </div>
 
                 {/* notification bell that changes on notification*/}
-                <LucideBell />
+                <LucideBell color='gray'/>
 
                 {/* profile area */}
                 <div className="flex gap-[10px] items-center">

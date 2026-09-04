@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard'
 import Task from './pages/Task'
 import Analytics from './pages/Analytics'
 import Settings from './pages/Settings'
+import Help from './pages/Help'
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="tasks" element={<Task />} />
           <Route path="analytics" element={< Analytics />} />
           <Route path="settings" element={< Settings />} />
+           <Route path="help" element={<Help />} />
 
         </Route>
       </Routes>

@@ -16,7 +16,7 @@ import { } from 'react-router-dom'
 const Home = () => {
     const navigate = useNavigate();
     return (
-        <div className='flex flex-col h-full gap-[22px] max-md:gap-[25px] max-lg:w-full'>
+        <div className='flex flex-col gap-[22px] max-md:gap-[25px] max-lg:w-full'>
 
             <div className="flex max-md:flex-col max-md:items-start max-md:gap-[20px] justify-between items-center w-full">
                 <div className="flex flex-col">

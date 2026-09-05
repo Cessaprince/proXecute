@@ -87,8 +87,7 @@ const Sidebar = () => {
                 <div className="flex flex-col w-full gap-[12px]">
                     {/* 1 */}
 
-                    <NavLink
-                        to='settings'
+                    <NavLink to='settings'
                         end
                         className={({ isActive }) =>
                             `flex items-center gap-[5px] px-[30px] py-[10px] group transition-all duration-300 ease-in-out hover:bg-gray-50 ${isActive ? 'bg-gray-50' : ''

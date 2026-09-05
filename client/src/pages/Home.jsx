@@ -132,7 +132,9 @@ const Home = () => {
                     <h3 className="text-[14px] capitalize font-semibold">reminders</h3>
                     <h1 className="text-[26px] font-semi-bold capitalize">meeting with mr. thomson</h1>
                     <span className="text-gray-500 text-xs font-light uppercase">2:00pm to 3:00pm</span>
-                    <a href="#" target="_blank" rel="noopener noreferrer" className='mt-[10px] capitalize text-white text-xs w-fit font-semibold bg-orange-600 hover:bg-orange-500 py-[10px] px-[20px] rounded-[25px]'>join meet now</a>
+                    <a href="https://zoom.us"
+                        target="_blank"
+                        rel="noopener noreferrer" className='mt-[10px] capitalize text-white text-xs w-fit font-semibold bg-orange-600 hover:bg-orange-500 py-[10px] px-[20px] rounded-[25px]'>join meet now</a>
                 </div>
 
                 {/* top collaborators */}

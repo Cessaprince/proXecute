@@ -10,7 +10,6 @@ import person1 from '../assets/images/person1.jpeg'
 import person2 from '../assets/images/person2.jpeg'
 import person3 from '../assets/images/person3.jpg'
 import person4 from '../assets/images/person4.avif'
-import { } from 'react-router-dom'
 
 
 const Home = () => {
@@ -27,11 +26,11 @@ const Home = () => {
 
                 {/* buttons */}
                 <div className="flex max-md:justify-between max-md:w-full items-center gap-[10px]">
-                    <button 
-                    onClick={()=>{
-                        navigate('projects')
-                    }}
-                    className="flex gap-[5px] text-white items-center bg-orange-600 w-fit py-[12px] px-[20px] cursor-pointer rounded-[25px] hover:bg-orange-500  transition-all ease-in-out duration-300 hover:-translate-y-1">
+                    <button
+                        onClick={() => {
+                            navigate('projects')
+                        }}
+                        className="flex gap-[5px] text-white items-center bg-orange-600 w-fit py-[12px] px-[20px] cursor-pointer rounded-[25px] hover:bg-orange-500  transition-all ease-in-out duration-300 hover:-translate-y-1">
                         <Plus size={18} />
                         <span className="capitalize text-[13px]">add project</span>
                     </button>

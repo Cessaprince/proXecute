@@ -13,6 +13,7 @@ const Register = () => {
 
     const [seePassword, setSeePassword] = useState(false);
     const [seeConfirmPassword, setSeeConfirmPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false) // new: tracks whether the form is currently submitting
 
     const handleVisibilityPwd = () => {
         setSeePassword(!seePassword)
@@ -59,6 +60,8 @@ const Register = () => {
 
             return
         }
+
+        setIsLoading(true)
 
         iziToast.success({
             title: 'Succesful!',
@@ -147,11 +150,23 @@ const Register = () => {
                             {/* button */}
                             <button
                                 type="submit"
+                                disabled={isLoading} // new: prevents double-submits while the spinner is showing
                                 onClick={(e) => {
                                     formSubmit(e)
                                 }}
-                                className='w-full bg-black text-white font-normal max-md:text-[14px] py-[10px] max-md:py-[7px] rounded-[10px] hover:cursor-pointer hover:bg-gray-600'
-                            >Register
+                                className='w-full bg-black text-white font-normal max-md:text-[14px] py-[10px] max-md:py-[7px] rounded-[10px] hover:cursor-pointer hover:bg-gray-600 flex items-center justify-center gap-[8px] disabled:opacity-70 disabled:cursor-not-allowed' // new: flex/gap/justify-center to align spinner + text, disabled: styles for visual feedback
+                            >
+                                {isLoading ? (
+                                    <>
+                                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none"> 
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                                        </svg>
+                                        Registering… 
+                                    </>
+                                ) : (
+                                    'Register'
+                                )}
                             </button>
                             <p className="text-sm text-center max-md:text-[12px]">Have an account? <Link to='/' className="text-sm  hover:text-red-500 max-md:text-[12px] border-b-[0.1px] border-b-black">Login here</Link></p>
 

@@ -197,15 +197,14 @@ const Navbar = () => {
                     onClick={() => {
                         setProfileOpen(false)
                     }}
-                    className="fixed bg-black/30 inset-0 z-[1000] h-screen w-full flex justify-center items-center min-h-screen">
+                    className="fixed bg-black/80 inset-0 z-[1000] h-screen w-full px-[30px] flex justify-center items-center min-h-screen">
 
                     <div 
-                    className="w-[500px] h-[500px] rounded-full overflow-hidden">
+                    className="w-[500px] h-[500px] max-w-[350px] max-h-[350px] rounded-full overflow-hidden">
                         <img src={profilePic} alt="" className="w-full h-full object-cover" />
 
                     </div>
                 </div>
-
 
             )}
 

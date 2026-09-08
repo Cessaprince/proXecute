@@ -18,7 +18,7 @@ const Task = () => {
             <p className="text-gray-500 font-semibold text-[13px] capitalize border-b-[2px] border-b-orange-600 cursor-pointer pb-[15px]">active projects</p>
             <p className="text-gray-500 font-semibold text-[13px] capitalize cursor-pointer pb-[15px]">completed</p>
           </div>
-          <input type="search" name="" id="" className='h-full outline-none border border-gray-300 rounded-[15px] px-[10px] py-[5px] text-xs [&::-webkit-search-cancel-button]:appearance-none' placeholder='Search here' />
+          <input type="search" name="" id="" className='max-md:hidden h-full outline-none border border-gray-300 rounded-[15px] px-[10px] py-[5px] text-xs [&::-webkit-search-cancel-button]:appearance-none' placeholder='Search here' />
         </div>
 
         <div className="flex flex-col gap-[10px]">

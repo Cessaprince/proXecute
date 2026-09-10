@@ -15,14 +15,14 @@ const Analytics = () => {
 
       <div className="flex flex-col gap-[50px]">
         {/* line graph*/}
-        <div className="w-full h-[400px] max-md:h-[]">
+        <div className="w-full h-[400px]">
           <LineGraph />
         </div>
 
 
         {/* the chart */}
-        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-[20px] h-[400px] items-center">
-          <div className="max-md:w-full h-full flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-300 p-[20px]">
+        <div className="grid grid-cols-2 max-md:grid-cols-1 gap-[20px] h-auto items-center">
+          <div className="max-md:w-full h-[400px] flex flex-col gap-[10px] bg-white rounded-[10px] border-[0.1px] border-gray-300 p-[20px]">
             <h3 className="text-[16px] capitalize font-semibold">project analytics (weekly)</h3>
             <ProjectAnalytics />
           </div>
@@ -33,23 +33,43 @@ const Analytics = () => {
           </div>
         </div>
 
+
+
         {/* summary */}
         <div className="flex flex-col gap-[15px]">
           <h3 className='capitalize font-semibold text-center'>summary of the weekly analytics & yearly analytics for both projects and tasks</h3>
           <div className="flex flex-col gap-[5px]">
             <p className='text-sm capitalize font-semibold'>weekly analytics summary </p>
-            <p className="text-[13px] font-light text-gray-600">
+            <p className="text-[13px] font-light text-gray-600 leading-[25px]">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste laborum sint voluptate tempore illum ut, libero accusamus, ipsa, temporibus animi porro provident aliquid saepe. A ducimus nisi, placeat quae totam magni, ad enim veniam vel quidem vero? Nulla natus sunt nostrum doloribus reprehenderit aperiam placeat. Corrupti voluptates doloribus hic distinctio!
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quaerat quo excepturi aliquid labore error corporis saepe sapiente dicta quibusdam vel vero ratione et laborum debitis, cumque sunt accusantium commodi neque maiores expedita. Aperiam tenetur, sed ex officiis repellat maiores, quod excepturi magnam quaerat eum eligendi nulla, voluptates assumenda quidem.
             </p>
           </div>
           <div className="flex flex-col gap-[5px]">
             <p className='text-sm capitalize font-semibold'>yearly analytics summary </p>
-            <p className="text-[13px] font-light text-gray-600">
+            <p className="text-[13px] font-light text-gray-600 leading-[25px]">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste laborum sint voluptate tempore illum ut, libero accusamus, ipsa, temporibus animi porro provident aliquid saepe. A ducimus nisi, placeat quae totam magni, ad enim veniam vel quidem vero? Nulla natus sunt nostrum doloribus reprehenderit aperiam placeat. Corrupti voluptates doloribus hic distinctio!
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quaerat quo excepturi aliquid labore error corporis saepe sapiente dicta quibusdam vel vero ratione et laborum debitis, cumque sunt accusantium commodi neque maiores expedita. Aperiam tenetur, sed ex officiis repellat maiores, quod excepturi magnam quaerat eum eligendi nulla, voluptates assumenda quidem.
             </p>
           </div>
+        </div>
+
+        {/* tips for better management of projects*/}
+
+        <div className="flex flex-col gap-[15px]">
+          <h3 className='capitalize font-semibold text-center'>tips from our resourceful assistant Stacie</h3>
+          <div className="flex flex-col gap-[20px]">
+            <p className="text-[13px] font-light text-gray-600 leading-[25px]">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste laborum sint voluptate tempore illum ut, libero accusamus, ipsa, temporibus animi porro provident aliquid saepe. A ducimus nisi, placeat quae totam magni, ad enim veniam vel quidem vero? Nulla natus sunt nostrum doloribus reprehenderit aperiam placeat. Corrupti voluptates doloribus hic distinctio!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quaerat quo excepturi aliquid labore error corporis saepe sapiente dicta quibusdam vel vero ratione et laborum debitis, cumque sunt accusantium commodi neque maiores expedita. Aperiam tenetur, sed ex officiis repellat maiores, quod excepturi magnam quaerat eum eligendi nulla, voluptates assumenda quidem.
+            </p>
+
+            <p className="text-[13px] font-light text-gray-600 leading-[25px]">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste laborum sint voluptate tempore illum ut, libero accusamus, ipsa, temporibus animi porro provident aliquid saepe. A ducimus nisi, placeat quae totam magni, ad enim veniam vel quidem vero? Nulla natus sunt nostrum doloribus reprehenderit aperiam placeat. Corrupti voluptates doloribus hic distinctio!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quaerat quo excepturi aliquid labore error corporis saepe sapiente dicta quibusdam vel vero ratione et laborum debitis, cumque sunt accusantium commodi neque maiores expedita. Aperiam tenetur, sed ex officiis repellat maiores, quod excepturi magnam quaerat eum eligendi nulla, voluptates assumenda quidem.
+            </p>
+          </div>
+
         </div>
       </div>
 

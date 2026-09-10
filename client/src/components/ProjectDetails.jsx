@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 const ProjectDetails = () => {
 
   // status controls the pill toggle + progress bar below — visual only for now
-  const [status, setStatus] = useState('running') // 'pending' | 'running' | 'ended'
+  const [status, setStatus] = useState('pending') // 'pending' | 'running' | 'ended'
+  const [checkCircle, setCheckCircle] = useState(false)
 
   return (
     <div className='flex flex-col gap-[30px]'>
@@ -104,8 +105,16 @@ const ProjectDetails = () => {
             {/* task 1 */}
             <div className="flex items-center justify-between gap-[10px] pb-[15px] border-b-[0.1px] border-gray-200">
               <div className="flex items-center gap-[12px]">
-                <CheckCircle2 size={20} className='text-orange-600 cursor-pointer' />
-                <p className="text-[14px] text-gray-400 line-through">Book the venue for the cookathon</p>
+                {checkCircle ? <CheckCircle2 size={20} className='text-orange-600 cursor-pointer' />
+                  : <Circle
+                    onClick={() => {
+                      setCheckCircle(true)
+                    }}
+                    size={20}
+                    className='text-gray-300 hover:text-orange-400 transition-all duration-300 ease-in-out cursor-pointer' />
+                }
+
+                <p className={`text-[14px] ${checkCircle ? 'line-through text-gray-400' : 'text-gray-700'}`}>Book the venue for the cookathon</p>
               </div>
               <Trash color='red' className='cursor-pointer shrink-0' size={16} />
             </div>
@@ -113,8 +122,15 @@ const ProjectDetails = () => {
             {/* task 2 */}
             <div className="flex items-center justify-between gap-[10px] pb-[15px] border-b-[0.1px] border-gray-200">
               <div className="flex items-center gap-[12px]">
-                <CheckCircle2 size={20} className='text-orange-600 cursor-pointer' />
-                <p className="text-[14px] text-gray-400 line-through">Reach out to sponsors for jollof supplies</p>
+                {checkCircle ? <CheckCircle2 size={20} className='text-orange-600 cursor-pointer' />
+                  : <Circle
+                    onClick={() => {
+                      setCheckCircle(true)
+                    }}
+                    size={20}
+                    className='text-gray-300 hover:text-orange-400 transition-all duration-300 ease-in-out cursor-pointer' />
+                }
+                <p className={`text-[14px] ${checkCircle ? 'line-through text-gray-400' : 'text-gray-700'}`}>Reach out to sponsors for jollof supplies</p>
               </div>
               <Trash color='red' className='cursor-pointer shrink-0' size={16} />
             </div>
@@ -122,8 +138,15 @@ const ProjectDetails = () => {
             {/* task 3 */}
             <div className="flex items-center justify-between gap-[10px] pb-[15px] border-b-[0.1px] border-gray-200">
               <div className="flex items-center gap-[12px]">
-                <Circle size={20} className='text-gray-300 hover:text-orange-400 transition-all duration-300 ease-in-out cursor-pointer' />
-                <p className="text-[14px] text-gray-700">Design flyers and share on social media</p>
+                {checkCircle ? <CheckCircle2 size={20} className='text-orange-600 cursor-pointer' />
+                  : <Circle
+                    onClick={() => {
+                      setCheckCircle(true)
+                    }}
+                    size={20}
+                    className='text-gray-300 hover:text-orange-400 transition-all duration-300 ease-in-out cursor-pointer' />
+                }
+                <p className={`text-[14px] ${checkCircle ? 'line-through text-gray-400' : 'text-gray-700'}`}>Design flyers and share on social media</p>
               </div>
               <Trash color='red' className='cursor-pointer shrink-0' size={16} />
             </div>
@@ -131,8 +154,15 @@ const ProjectDetails = () => {
             {/* task 4 */}
             <div className="flex items-center justify-between gap-[10px]">
               <div className="flex items-center gap-[12px]">
-                <Circle size={20} className='text-gray-300 hover:text-orange-400 transition-all duration-300 ease-in-out cursor-pointer' />
-                <p className="text-[14px] text-gray-700">Confirm judges for the tasting panel</p>
+                {checkCircle ? <CheckCircle2 size={20} className='text-orange-600 cursor-pointer' />
+                  : <Circle
+                    onClick={() => {
+                      setCheckCircle(true)
+                    }}
+                    size={20}
+                    className='text-gray-300 hover:text-orange-400 transition-all duration-300 ease-in-out cursor-pointer' />
+                }
+                <p className={`text-[14px] ${checkCircle ? 'line-through text-gray-400' : 'text-gray-700'}`}>Confirm judges for the tasting panel</p>
               </div>
               <Trash color='red' className='cursor-pointer shrink-0' size={16} />
             </div>

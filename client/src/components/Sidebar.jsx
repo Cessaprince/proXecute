@@ -1,8 +1,10 @@
 import { LucideHome, Folder, CheckSquare, BarChart2, Settings, HelpCircle, LogOut } from 'lucide-react'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const Sidebar = () => {
+    const navigate = useNavigate()
+
     return (
         <div className="max-lg:hidden w-[250px] mt-[60px] py-[30px] px-[20px] bg-white h-screen fixed top-0 left-0 flex flex-col gap-[40px]">
             {/* Sidebar links */}
@@ -121,7 +123,10 @@ const Sidebar = () => {
 
                     {/* 3 */}
                     <button
-                        className='flex items-center gap-[5px] px-[30px] py-[10px] group transition-all duration-300 ease-in-out hover:bg-gray-50 w-full'
+                    onClick={()=>{
+                        navigate('/')
+                    }}
+                        className='cursor-pointer flex items-center gap-[5px] px-[30px] py-[10px] group transition-all duration-300 ease-in-out hover:bg-gray-50 w-full'
                     >
                         <LogOut className='text-gray-500 group-hover:text-orange-500' size={19} />
                         <span className='font-semibold capitalize text-[15px] text-gray-500 group-hover:text-orange-600'>logout</span>

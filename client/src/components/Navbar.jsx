@@ -3,7 +3,7 @@ import logo from '../assets/images/proXecute.png'
 import { BellDotIcon, HamburgerIcon, LucideBell, LucideBellDot, MenuIcon, SearchIcon, LucideHome, Folder, CheckSquare, BarChart2, Settings, HelpCircle, LogOut, X } from 'lucide-react'
 
 import profilePic from '../assets/images/default-profile-pic.jpeg'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -39,6 +39,8 @@ const Navbar = () => {
     const openingProfile = () => {
         setProfileOpen(!profileOpen)
     }
+
+    const navigate = useNavigate();
 
     return (
         <div className="w-full max-lg:flex-col max-lg:flex max-lg:gap-[10px] h-[60px] max-lg:h-auto max-lg:h-auto fixed top-0 left-0 z-10 px-[30px] max-lg:px-[10px] py-[10px] shadow-lg bg-white">
@@ -212,7 +214,10 @@ const Navbar = () => {
 
                         {/* 3 */}
                         <button
-                            className='flex items-center gap-[5px] px-[30px] py-[10px] group transition-all duration-300 ease-in-out hover:bg-gray-50 w-full'
+                            onClick={() => {
+                                navigate('/')
+                            }}
+                            className='flex cursor-pointer items-center gap-[5px] px-[30px] py-[10px] group transition-all duration-300 ease-in-out hover:bg-gray-50 w-full'
                         >
                             <LogOut className='text-gray-500 group-hover:text-orange-500' size={19} />
                             <span className='font-semibold capitalize text-[15px] text-gray-500 group-hover:text-orange-600'>logout</span>

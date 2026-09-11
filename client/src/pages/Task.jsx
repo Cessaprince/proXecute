@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Trash } from 'lucide-react'
 import person1 from '../assets/images/person1.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Task = () => {
   const navigate = useNavigate()
+  const [status, setStatus] = useState('all'); // 'pending' | 'running' | 'ended'
+
 
   return (
     <div className='flex flex-col gap-[30px]'>
@@ -14,6 +16,32 @@ const Task = () => {
       <div className="flex flex-col">
         <h1 className="font-semibold capitalize text-[30px]">my tasks</h1>
         <p className="text-[15px] max-md:text-[15px] font-light text-gray-500">Explore the details to your latest works, experiements and projects.</p>
+      </div>
+
+      {/* filter + search */}
+      <div className="flex max-md:flex-col max-md:gap-[15px] justify-between items-center w-full">
+        <div className="flex w-fit items-center rounded-[25px] bg-gray-200 h-fit">
+          <span
+            onClick={() => {
+              setStatus('all')
+            }}
+            className={`font-semibold capitalize text-xs px-[10px] py-[5px] rounded-[25px] ${status === 'all' ? 'bg-orange-600 text-white' : ''}`}>
+              all tasks
+            </span>            
+          <span
+            onClick={() => {
+              setStatus('running')
+            }}
+            className={`font-semibold capitalize text-xs px-[10px] py-[5px] rounded-[25px] ${status === 'running' ? 'bg-orange-600 text-white' : ''}`}>running</span>
+          <span
+            onClick={() => {
+              setStatus('ended')
+            }}
+            className={`font-semibold capitalize text-xs px-[10px] py-[5px] rounded-[25px] ${status === 'ended' ? 'bg-orange-600 text-white' : ''}`}>
+              ended
+            </span>        
+            </div>
+
       </div>
 
       {/* the table */}
@@ -30,7 +58,10 @@ const Task = () => {
               <th scope="col" className='p-[15px] capitalize'>status</th>
             </tr>
           </thead>
-          <tbody>
+
+
+          {/* table body*/}
+          <tbody className=''>
 
 
             {/*task1 */}
@@ -105,7 +136,30 @@ const Task = () => {
                 </span>
               </td>
             </tr>
+
+            {/* tasks (when they do not exist ) */}
+            <tr className="bg-white hidden">
+              <td colSpan={6} className="h-auto py-[30px]">
+                <div className="flex justify-center items-center">
+                  <div className="flex flex-col justify-center items-center gap-[7px] bg-gray-100 shadow-sm h-auto max-w-[300px] w-[60%] p-[30px]">
+                    <Trash color='gray' size={16} />
+                    <div className="flex flex-col gap-[2px]">
+                      <h3 className="text-[12px] text-gray-500 font-light">Oops! No tasks created yet on a project.</h3>
+                      <p onClick={() => {
+                        navigate('/dashboard/projects/')
+                      }}
+                        className='text-gray-500 cursor-pointer text-center hover:text-orange-600 hover:scale-95 transition duration-300 ease-in-out '>Click here to go create one</p>
+                    </div>
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+
           </tbody>
+
+
         </table>
       </div>
 

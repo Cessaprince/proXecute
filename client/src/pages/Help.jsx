@@ -16,13 +16,13 @@ const Help = () => {
           <p className="text-[15px] max-md:text-[15px] font-light text-gray-500">Have questions? Search through our Help Center.</p>
         </div>
 
-        <form action="" className='max-md:w-full bg-white px-[15px] py-[10px] w-[40%] flex justify-between rounded-[25px]'>
-          <div className="flex gap-[7px] items-center">
+        <form action="" className='max-md:w-full gap-[5px] bg-white px-[15px] py-[10px] w-[40%] flex justify-between rounded-[25px]'>
+          <div className="flex gap-[7px] items-center text-xs text-gray-500 w-[75%]">
             <Search color='gray' size={18} />
-            <input type="search" name="searchHelp" id="searchHelp" placeholder='Search for questions or topics...' className='text-xs w-[70%] outline-none [&::-webkit-search-cancel-button]:appearance-none' />
+            <input type="search" name="searchHelp" id="searchHelp" placeholder='Search for questions or topics...' className=' outline-none [&::-webkit-search-cancel-button]:appearance-none w-full' />
 
           </div>
-          <button type="submit" className='capitalize text-white bg-orange-600 py-[5px] text-xs px-[15px] rounded-[25px] hover:scale-102 hover:bg-orange-400 cursor-pointer'>search</button>
+          <button type="submit" className='flex-1 capitalize text-white bg-orange-600 py-[5px] text-xs px-[15px] rounded-[25px] hover:scale-102 hover:bg-orange-400 cursor-pointer'>search</button>
         </form>
       </div>
 

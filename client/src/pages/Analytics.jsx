@@ -15,10 +15,11 @@ const Analytics = () => {
 
       <div className="flex flex-col gap-[50px]">
         {/* line graph*/}
-        <div className="w-full h-[400px]">
-          <LineGraph />
+        <div className="w-full h-[400px] max-lg:overflow-x-auto no-scrollbar">
+          <div className="min-w-[700px] h-full">
+            <LineGraph />
+          </div>
         </div>
-
 
         {/* the chart */}
         <div className="grid grid-cols-2 max-md:grid-cols-1 gap-[20px] h-auto items-center">

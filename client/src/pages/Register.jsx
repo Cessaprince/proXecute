@@ -10,6 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [email, setEmail] = useState('')
+    const [fullName, setFullName] = useState('')
 
     const [seePassword, setSeePassword] = useState(false);
     const [seeConfirmPassword, setSeeConfirmPassword] = useState(false);
@@ -30,7 +31,7 @@ const Register = () => {
 
     const formSubmit = (e) => {
         e.preventDefault()
-        if (!password || !confirmPassword || !email) {
+        if (!fullName || !password || !confirmPassword || !email) {
             iziToast.warning({
                 title: 'Warning',
                 message: 'Ensure that all form fields are filled.',
@@ -84,9 +85,20 @@ const Register = () => {
 
                         <form action="" className="flex flex-col gap-[15px] w-full">
 
-                            {/* Email */}
+
+                            {/* full name */}
                             <input
                                 type="text"
+                                id='fullName'
+                                onChange={(e) => {
+                                    setFullName(e.target.value)
+                                }}
+                                value={fullName}
+                                className='w-full text-[14px] max-md:text-[12px] font-light py-[7px] border-b-[0.1px] border-b-gray-500 outline-none' placeholder='Full Name' />
+
+                            {/* Email */}
+                            <input
+                                type="email"
                                 id='email'
                                 onChange={(e) => {
                                     setEmail(e.target.value)
@@ -150,7 +162,7 @@ const Register = () => {
                             {/* button */}
                             <button
                                 type="submit"
-                                disabled={isLoading} // new: prevents double-submits while the spinner is showing
+                                disabled={isLoading}
                                 onClick={(e) => {
                                     formSubmit(e)
                                 }}
@@ -158,11 +170,11 @@ const Register = () => {
                             >
                                 {isLoading ? (
                                     <>
-                                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none"> 
+                                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none"> {/* new: spinner from Tailwind docs example */}
                                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
                                         </svg>
-                                        Registering… 
+                                        Signing up…
                                     </>
                                 ) : (
                                     'Register'

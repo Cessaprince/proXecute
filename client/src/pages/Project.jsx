@@ -61,13 +61,15 @@ const Project = () => {
 
   return (
     <div className='flex flex-col gap-[30px]'>
+
+
       <div className="flex max-lg:flex-col max-lg:items-start lg:items-center justify-between gap-[15px]">
         <div className="flex flex-col flex-1 min-w-0">
           <h1 className="font-semibold capitalize text-[30px]">my projects</h1>
           <p className="text-[15px] max-md:text-[15px] font-light text-gray-500">Explore your latest work, side projects, and experiments.</p>
 
         </div>
-        <div className="flex max-lg:w-full max-lg:justify-between items-center gap-[10px] shrink-0">
+        <div className=" flex max-lg:w-full max-lg:justify-between items-center gap-[10px] shrink-0">
           {/* progress bar will be here*/}
           <div className="">
 
@@ -76,15 +78,31 @@ const Project = () => {
           {/* create project button */}
           <button
             onClick={clickButton}
-            className="flex gap-[5px] items-center text-orange-600 border-orange-600 border-1 hover:scale-102 w-fit py-[10px] px-[20px] cursor-pointer rounded-[25px] transition-all ease-in-out duration-300">
-            <Plus size={18} />
-            <span className="capitalize text-[13px] font-semibold">create a new project</span>
+            className="flex gap-[5px] items-center text-orange-600 border-orange-600 border-1 hover:scale-102 w-fit py-[10px] px-[20px] max-md:py-[8px] cursor-pointer rounded-[25px] transition-all ease-in-out duration-300">
+            <Plus size={17} />
+            <span className="capitalize text-[13px] max-md:text-[11px] font-semibold">create a new project</span>
           </button>
 
         </div>
       </div>
 
-      {/* todays project*/}
+      {/* when there is nothing to show */}
+      <div className="hidden flex justify-center items-center h-auto py-[30px]">
+        <div className="flex flex-col justify-center items-center gap-[7px] bg-white shadow-sm h-auto max-w-[400px] w-[70%] p-[30px]">
+          <Trash color='gray' size={16} />
+          <div className="flex flex-col gap-[2px] max-md:gap-[4px]">
+            <h3 className="text-[15px] text-gray-500 font-light text-center">Oops! No projects created yet</h3>
+            <p onClick={() => {
+              setCreateClick(true)
+            }}
+              className='text-gray-500 text-xs cursor-pointer text-center hover:text-orange-600 hover:scale-95 transition duration-300 ease-in-out '>Click here to go create one</p>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* todays project div and the table all together*/}
       <div className="grid grid-cols-1 lg:grid-cols-[60%_1fr] gap-[25px] items-start [grid-template-areas:'images'_'schedule'_'table'] lg:[grid-template-areas:'images_schedule'_'table_schedule']">
         {/* the left*/}
         <div className="[grid-area:images] max-lg:mt-[20px] flex flex-col gap-[30px] items-center w-full">
@@ -130,8 +148,28 @@ const Project = () => {
           </div>
         </div>
 
+
         {/* projects due for that day */}
+
+
+          {/* when there is nothing to show*/}
+          <div className="hidden  flex justify-center items-center h-auto py-[30px]">
+            <div className="flex flex-col justify-center items-center gap-[7px] shadow-sm h-auto max-w-[400px] w-[70%] p-[30px]">
+              <Trash color='gray' size={16} />
+              <div className="flex flex-col gap-[2px] max-md:gap-[4px]">
+                <h3 className="text-[15px] text-gray-500 font-light text-center">Oops! No scheduled project for today</h3>
+                <p onClick={() => {
+                  setCreateClick(true)
+                }}
+                  className='text-gray-500 text-xs cursor-pointer text-center hover:text-orange-600 hover:scale-95 transition duration-300 ease-in-out '>Click here to go create one</p>
+              </div>
+
+            </div>
+          </div>
+
+          {/* SHOWING */}
         <div className="[grid-area:schedule] bg-white max-lg:mt-[40px] flex-1 w-full flex flex-col gap-[25px] h-auto border-gray-300 border-[0.1px] p-[20px] shadow-sm rounded-[12px]">
+
           {/* the heading */}
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-[18px] capitalize">today's schedule</h3>
@@ -221,9 +259,6 @@ const Project = () => {
             </div>
           </div>
 
-
-
-
         </div>
 
         {/* heading, the div or table of completed and active projects*/}
@@ -254,8 +289,8 @@ const Project = () => {
               </span>
             </div>
           </div>
-          {/* the table */}
 
+          {/* the table */}
           <div className="flex flex-col gap-[10px] w-full">
             <div className="flex justify-between w-full border-b-[0.1px] border-gray-300">
               <div className="flex gap-[30px] items-center">
@@ -276,13 +311,13 @@ const Project = () => {
                   className={`text-gray-500 font-semibold text-[13px] capitalize ${status === 'ended' ? 'border-b-[2px] border-b-orange-600' : ''} cursor-pointer pb-[15px]`}
                 >
                   completed
-                </p>              
-                </div>
-              <input type="search" name="" id="" className='h-full max-md:hidden outline-none border border-gray-300 rounded-[15px] px-[10px] py-[5px] text-xs [&::-webkit-search-cancel-button]:appearance-none' placeholder='Search here' />
+                </p>
+              </div>
             </div>
 
             <div className="flex flex-col gap-[10px]">
               <p className="text-xs text-gray-500 capitalize font-light">today</p>
+
               {/* projects (when they exist )*/}
               <div className="flex flex-col gap-[10px]">
 

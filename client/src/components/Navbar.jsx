@@ -7,6 +7,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [menuVisible, setMenuVisible] = useState(false) // new: tracks whether the panel is still mounted, stays true briefly after menuOpen goes false so the exit animation can play
 
     const handleMenu = () => {
         setMenuOpen(!menuOpen)
@@ -21,6 +22,18 @@ const Navbar = () => {
     },
         [menuOpen])
 
+    // new: syncs menuVisible with menuOpen — opening shows the panel instantly, closing waits for the slide-out animation to finish before unmounting
+    useEffect(() => {
+        if (menuOpen) {
+            setMenuVisible(true)
+        } else {
+            const timer = setTimeout(() => {
+                setMenuVisible(false)
+            }, 350) // new: must match the animation duration below (0.35s)
+            return () => clearTimeout(timer)
+        }
+    }, [menuOpen])
+
     const [profileOpen, setProfileOpen] = useState(false);
 
     const openingProfile = () => {
@@ -31,16 +44,16 @@ const Navbar = () => {
         <div className="w-full max-lg:flex-col max-lg:flex max-lg:gap-[10px] h-[60px] max-lg:h-auto max-lg:h-auto fixed top-0 left-0 z-10 px-[30px] max-lg:px-[10px] py-[10px] shadow-lg bg-white">
             <div className="w-full flex justify-between px-[20px] items-center">
 
-                {menuOpen ? 
-                
-                < X
-                    size={18}
-                className='lg:hidden'
-                onClick={handleMenu} />
-                 : <MenuIcon
-                    size={18}
-                    className='lg:hidden'
-                    onClick={handleMenu} />
+                {menuOpen ?
+
+                    < X
+                        size={18}
+                        className='lg:hidden'
+                        onClick={handleMenu} />
+                    : <MenuIcon
+                        size={18}
+                        className='lg:hidden'
+                        onClick={handleMenu} />
                 }
 
 
@@ -84,13 +97,13 @@ const Navbar = () => {
             </div>
 
 
-            {menuOpen && (
+            {menuVisible && ( // new: was menuOpen — now checks menuVisible so the panel stays mounted long enough for the exit animation
                 <div
                     onClick={() => {
                         setMenuOpen(false)
                     }}
                     className="fixed inset-0 bg-black/30 top-[60px]">
-                    <div className="lg:hidden w-[50%] px-[5px] fixed inset-0 top-[60px] z-20 bg-white flex flex-col gap-[10px]">
+                    <div className={`lg:hidden w-[50%] px-[5px] fixed inset-0 top-[60px] z-20 bg-white flex flex-col gap-[10px] ${menuOpen ? 'animate-[slide-in-right_0.35s_ease-in-out]' : 'animate-[slide-out-right_0.35s_ease-in-out]'}`}> {/* new: swaps between slide-in and slide-out based on menuOpen */}
                         {/* 1 */}
                         <NavLink
                             to='/dashboard'
